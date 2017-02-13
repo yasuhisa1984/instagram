@@ -12,7 +12,10 @@
 　　　</div>
   　</div>
     <div class="col-sm-9 col-md-6">
-
+    <% @pictures.each do |picture| %>
+      タイトル：<%= picture.title %><br>
+      コンテンツ：<%= picture.content %><br>
+    <% end %>
   　</div>
     <div class="col-sm-6 col-md-3 hidden-xs hidden-sm">
       <div class="panel panel-info">
