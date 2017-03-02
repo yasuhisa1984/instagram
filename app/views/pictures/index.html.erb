@@ -3,27 +3,17 @@
     <section class="main-header">
   　　<p class="flash"><%= notice %><%= alert %></p>
 　　</section>
-    <div class="col-sm-3 col-md-3">
-      <div class="panel panel-info">
-        <div class="panel-body">
-          <h3 class="text-center">プロフィール</h3>
-    　　</div>
-    　　<div class="panel-footer"></div>
-　　　</div>
-  　</div>
-    <div class="col-sm-9 col-md-6">
+
+    <div class="col-md-4 col-md-offset-4 col-sm-10">
     <% @pictures.each do |picture| %>
+      <p><%= profile_img(picture.user) if profile_img(picture.user) %><%= picture.user.name %>が投稿しました。<br>
       タイトル：<%= picture.title %><br>
       コンテンツ：<%= picture.content %><br>
+      <%= image_tag picture.picture, width: 400, hight: 400 %><br>
+      <%= link_to "編集", edit_picture_path(picture.id), class: 'btn btn-default btn-sm btn-success' %>
+      <%= link_to "削除", picture_path(picture.id), method: :delete, data: { confirm: '本当に削除していいですか？'}, class: 'btn btn-default btn-sm btn btn-danger' %>
+      <hr>
     <% end %>
-  　</div>
-    <div class="col-sm-6 col-md-3 hidden-xs hidden-sm">
-      <div class="panel panel-info">
-        <div class="panel-body">
-          <h3 class="text-center">おすすめユーザー</h3>
-    　　</div>
-    　　<div class="panel-footer"></div>
-　　　</div>
   　</div>
   </div>
 </div>

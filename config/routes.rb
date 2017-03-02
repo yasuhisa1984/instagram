@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     omniauth_callbacks: "users/omniauth_callbacks"
   }
   root 'pictures#index'
+  resources :pictures, only: [:index, :new, :create, :edit, :update, :destroy] 
 
   if Rails.env.development?
   mount LetterOpenerWeb::Engine, at: "/letter_opener"
