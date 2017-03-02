@@ -8,6 +8,6 @@ class NoticeMailer < ApplicationMailer
   def sendmail_picture
     @greeting = "Hi"
 
-    mail to: "to@example.org"
+    mail to: "penmouse275@gmail.com"
   end
 end
