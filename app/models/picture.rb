@@ -4,4 +4,5 @@ class Picture < ActiveRecord::Base
   belongs_to :user
   #Model Picture.picture と、アップローダー ImageUploader とをひも付け。
   mount_uploader :picture, PictureUploader
+
 end
