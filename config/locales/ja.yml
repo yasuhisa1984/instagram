@@ -6,7 +6,6 @@ ja:
       picture:
         title: タイトル
         content: コメント
-    attributes:
       user:
         email: メールアドレス
         password: パスワード
