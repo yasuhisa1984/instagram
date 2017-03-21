@@ -1,0 +1,26 @@
+<div class="modal-dialog">
+    <div class="modal-content">
+        <%= form_for(@picture,:html => {:multipart => true}, remote: true) do |f| %>
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="modal-title">New/Editing product</h4>
+        </div>
+        <div class="modal-body">
+            <h2>投稿する</h2>
+            <%= f.label :タイトル %>
+            <%= f.text_field :title, class: 'form-control' %>
+            <br>
+            <%= f.label :コメント %>
+            <%= f.text_field :content, class: 'form-control' %>
+            <br>
+            <%= image_tag @picture.picture, width: 80, hight: 80 if @picture.picture? %>
+            <%= f.label :写真 %>
+            <%= f.file_field :picture %>
+            <%= f.hidden_field :picture_cache %><br>
+            <%= f.submit '投稿', class: 'btn btn-primary btn-block' %>
+        </div>
+    </div>
+    <% end %>
+</div>

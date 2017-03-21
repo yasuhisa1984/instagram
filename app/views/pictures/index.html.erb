@@ -1,19 +1,28 @@
 <div class="container">
-  <div class="row">
-    <section class="main-header">
-  　　<p class="flash"><%= notice %><%= alert %></p>
-　　</section>
+    <div class="row">
+        <section class="main-header">
+            <p class="flash"><%= notice %><%= alert %></p>
+        </section>
 
-    <div class="col-md-4 col-md-offset-4 col-sm-10">
-    <% @pictures.each do |picture| %>
-      <p><%= profile_img(picture.user) if profile_img(picture.user) %><%= picture.user.name %>が投稿しました。<br>
-      タイトル：<%= picture.title %><br>
-      コンテンツ：<%= picture.content %><br>
-      <%= image_tag picture.picture, width: 400, hight: 400 %><br>
-      <%= link_to "編集", edit_picture_path(picture.id), class: 'btn btn-default btn-sm btn-success' %>
-      <%= link_to "削除", picture_path(picture.id), method: :delete, data: { confirm: '本当に削除していいですか？'}, class: 'btn btn-default btn-sm btn btn-danger' %>
-      <hr>
-    <% end %>
-  　</div>
-  </div>
-</div>
+        <div class="col-md-4 col-md-offset-4 col-sm-10">
+                <h1>Listing products</h1>
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th colspan="2"></th>
+                        </tr>
+                    </thead>
+
+                    <tbody class="product-index">
+                        <%= render "index2" %>
+                    </tbody>
+                </table>
+
+                <br>
+                <%= link_to 'New Product', new_picture_path, remote: true %>
+                <div id="product-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
+            </div>
+        </div>
+    </div>

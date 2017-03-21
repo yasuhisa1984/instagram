@@ -16,15 +16,13 @@ class PicturesController < ApplicationController
 
   def create
     @picture = Picture.new(pictures_params)
-    @picture.user_id = current_user.id
+
     if @picture.save
-      redirect_to pictures_path, notice: "投稿しました!"
-      # 一覧画面へ遷移して"ブログを作成しました！"とメッセージを表示します。
-      #redirect_to Pictures_path, notice: "ブログを作成しました!"
-      #NoticeMailer.sendmail_Picture(@picture).deliver
+       @pictures = Picture.all
+      
     else
       # 入力フォームを再描画します。
-      render 'new'
+      render 'index'
     end
   end
 
